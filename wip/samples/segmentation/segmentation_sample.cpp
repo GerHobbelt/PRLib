@@ -33,7 +33,7 @@
 int main(int argc, char**argv)
 {
     const std::string inputImageFilename = "input.tif";// = argv[1];
-    const std::string outputImageFilename = "binary_sample.tif";// = argv[2];
+    const std::string outputImageFilename = "binary_sample";// = argv[2];
 
     /*if (inputImageFilename.empty())
     {
@@ -46,10 +46,12 @@ int main(int argc, char**argv)
     }*/
 
     cv::Mat inputImage = cv::imread(inputImageFilename);
-    cv::Mat outputImage;
+		std::vector<cv::Mat> outputImages;
 
-    prl::segmentation_ccc(inputImage, outputImage);
+    prl::segmentation_ccc(inputImage, outputImages);
 
-    cv::imwrite(outputImageFilename, outputImage);
+    cv::imwrite(outputImageFilename + ".text-layer.tif", outputImages[0]);
+		cv::imwrite(outputImageFilename + ".foreground-layer.tif", outputImages[1]);
+		cv::imwrite(outputImageFilename + ".background-layer.tif", outputImages[2]);
 }
 
