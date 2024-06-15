@@ -142,7 +142,7 @@ I_SetSigTitle(struct SigSet *S, const char *title)
 }
 
 
-char *
+const char *
 I_GetSigTitle(struct SigSet *S)
 {
   if (S->title) return S->title;
@@ -159,7 +159,7 @@ I_SetClassTitle(struct ClassSig *C, const char *title)
   strcpy(C->title, title);
 }
 
-char *
+const char *
 I_GetClassTitle(struct ClassSig *C)
 {
   if (C->title) return C->title;
