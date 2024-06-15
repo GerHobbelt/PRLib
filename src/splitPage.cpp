@@ -72,7 +72,7 @@ std::pair<cv::Point, cv::Point> findVertLine(const cv::Mat &inputImage) {
     int center = resultCanny.cols / 2;
     for(const auto& line : vertLines)
     {
-        auto lineByPoint = fromVec2f(line); 
+        auto lineByPoint = fromVec2f(line);
     }
 
     return std::make_pair(cv::Point(0, 0), cv::Point(0, 0));
