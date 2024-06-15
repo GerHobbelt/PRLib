@@ -45,8 +45,8 @@
 void I_InitSigSet(struct SigSet *S);
 struct ClassSig *I_NewClassSig(struct SigSet *S);
 struct SubSig *I_NewSubSig (struct SigSet *S, struct ClassSig *C);
-void I_SetSigTitle (struct SigSet *S, char *title);
-void I_SetClassTitle (struct ClassSig *C, char *title);
+void I_SetSigTitle (struct SigSet *S, const char *title);
+void I_SetClassTitle (struct ClassSig *C, const char *title);
 void I_DeallocClassData( struct SigSet *S, struct ClassSig *C);
 void I_RemoveSubSig (struct SigSet *S, struct ClassSig *C);
 void I_RemoveClassSig(struct SigSet *S);

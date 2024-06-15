@@ -165,7 +165,7 @@ Description:
 void multifree(void* r, int d)
 {
     void** p;
-    void* next;
+    void* next = nullptr;
     int i;
 
     for (p = (void**) r, i = 0; i < d; p = (void**) next, i++)

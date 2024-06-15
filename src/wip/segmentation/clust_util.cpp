@@ -133,7 +133,7 @@ I_NewSubSig(struct SigSet *S, struct ClassSig *C)
 
 
 void
-I_SetSigTitle(struct SigSet *S, char *title)
+I_SetSigTitle(struct SigSet *S, const char *title)
 {
   if (title == NULL) title = "";
   if (S->title) free (S->title);
@@ -142,7 +142,7 @@ I_SetSigTitle(struct SigSet *S, char *title)
 }
 
 
-char *
+const char *
 I_GetSigTitle(struct SigSet *S)
 {
   if (S->title) return S->title;
@@ -151,7 +151,7 @@ I_GetSigTitle(struct SigSet *S)
 
 
 void
-I_SetClassTitle(struct ClassSig *C, char *title)
+I_SetClassTitle(struct ClassSig *C, const char *title)
 {
   if (title == NULL) title = "";
   if (C->title) free (C->title);
@@ -159,7 +159,7 @@ I_SetClassTitle(struct ClassSig *C, char *title)
   strcpy(C->title, title);
 }
 
-char *
+const char *
 I_GetClassTitle(struct ClassSig *C)
 {
   if (C->title) return C->title;

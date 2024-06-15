@@ -27,7 +27,6 @@
 
 #include <opencv2/core/core.hpp>
 
-#include "leptonica/alltypes.h"
 #include <leptonica/allheaders.h>
 
 

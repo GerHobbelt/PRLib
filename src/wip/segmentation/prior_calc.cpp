@@ -25,7 +25,6 @@
 #include "boundary.h"
 
 #include "allocate.h"
-#include "getopt.h"
 #include "prior_calc.h"
 
 #define boundary8_j(x) ((((x)==7)||((x)==0)||((x)==1))?1:((((x)==3)||((x)==4)||((x)==5))?-1 : 0))
@@ -68,8 +67,7 @@ void find_neighbors(
     int startx, starty, ti, tj, dir;
     double dist;
     char check_flg;
-    double feat_dis;
-    double tmp, tmp2;
+    double tmp;
 
     height = hw->i;
     width = hw->j;
@@ -135,7 +133,7 @@ void find_neighbors(
                 if (check_flg == FLG_OFF)
                 {
                     printf("FATAL ERROR: Cannot locate the centroid\n");
-                    exit;
+                    exit(1);
                 }
             }
         }

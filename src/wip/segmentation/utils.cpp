@@ -35,7 +35,7 @@ unsigned short magic_getshort(FILE* fp)
 }
 
 
-void error(char* prog, char* message, char* extra)
+void error(const char* prog, const char* message, const char* extra)
 {
     fprintf(stderr, "%s: %s %s\n", prog, message, extra);
     exit(1);

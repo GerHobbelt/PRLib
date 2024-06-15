@@ -48,6 +48,6 @@ char *fgoodgets(FILE *fp);
 
 unsigned short magic_getshort(FILE *fp);
 
-void   error(char *prog, char *message, char *extra);
+void   error(const char *prog, const char *message, const char *extra);
 
 #endif

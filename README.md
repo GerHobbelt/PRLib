@@ -44,3 +44,8 @@ Image processing can really help to improve recognition quality.
 ```shell
     make
 ```    
+
+*Build tested*
+
+- Opencv: 4.7.0
+- Leptonica: 1.82.0-3

@@ -82,9 +82,22 @@ double GLVN_Algo(const cv::Mat& src)
     return focusMeasure;
 }
 
-bool prl::isBlurred(const cv::Mat& inputImage)
+bool prl::isBlurred(const cv::Mat& src, prl::BlurDetectionAlgo algo)
 {
     //TODO: find constants for blurring check for every algorithm. Write supertest, powered by all algorithms
-    return false;
+  	static const double kBlurThreshold = 1.0;
+    switch (algo)
+    {
+        case BlurDetectionAlgo::LAPM:
+            return LAPM_Algo(src) > kBlurThreshold;
+        case BlurDetectionAlgo::LAPV:
+            return LAPV_Algo(src) > kBlurThreshold;
+        case BlurDetectionAlgo::TENG:
+            return TENG_Algo(src, 5) > kBlurThreshold;
+        case BlurDetectionAlgo::GLVN:
+            return GLVN_Algo(src) > kBlurThreshold;
+        default:
+            return false;
+    }
 }
 
