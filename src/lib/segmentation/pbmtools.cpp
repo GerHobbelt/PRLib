@@ -16,8 +16,7 @@
 
 #include "marklist.h"
 #include "pbmtools.h"
-#include "utils.h"
-
+#include "segmentation_utils.h"
 
 
 /*
