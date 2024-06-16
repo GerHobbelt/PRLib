@@ -1458,19 +1458,19 @@ double calc_Vb5(
 
     if (sb_cur == 0)
     {
-        cost = pre_dynm_comp->lyr_mismatch.at<int>({i, j});
+        cost = pre_dynm_comp->lyr_mismatch.at<int>(i, j);
     }
     else if (sb_cur == 1)
     {
-        cost = pre_dynm_comp->rev_lyr_mismatch.at<int>({i, j});
+        cost = pre_dynm_comp->rev_lyr_mismatch.at<int>(i, j);
     }
     else if (sb_cur == 2)
     {
-        cost = pre_dynm_comp->prev_cnt_1.at<int>({i, j});
+        cost = pre_dynm_comp->prev_cnt_1.at<int>(i, j);
     }
     else if (sb_cur == 3)
     {
-        cost = blocksize - pre_dynm_comp->prev_cnt_1.at<int>({i, j});
+        cost = blocksize - pre_dynm_comp->prev_cnt_1.at<int>(i, j);
     }
 
     return ((double) cost / blocksize);
