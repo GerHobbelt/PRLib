@@ -1425,7 +1425,7 @@ void flip_reversed_cc(
                 {
                     if (pbm_getpixel(n->data.bitmap, j, i) == 1)
                     {
-                        bin_mask_r.at<uchar>({starty + i, startx + j}) = 1;
+                        bin_mask_r.at<uchar>(starty + i, startx + j) = 1;
                     }
                 }
             }
@@ -1482,9 +1482,9 @@ void flip_reversed_cc(
             {
                 for (j = 0; j < n->data.w; j++)
                 {
-                    if (rem_bin.at<uchar>({i, j}) == 0)
+                    if (rem_bin.at<uchar>(i, j) == 0)
                     {
-                        bin_mask_r.at<uchar>({starty + i, startx + j}) = bin_flip.at<uchar>({i, j});
+                        bin_mask_r.at<uchar>(starty + i, startx + j) = bin_flip.at<uchar>(i, j);
                     }
                 }
             }
@@ -1497,7 +1497,7 @@ void flip_reversed_cc(
     {
         for (j = 0; j < width; j++)
         {
-            bin_msk[i][j] = bin_mask_r.at<uchar>({i, j});
+            bin_msk[i][j] = bin_mask_r.at<uchar>(i, j);
         }
     }
 
