@@ -2,10 +2,10 @@
 
 Pre-Recognition Library.
 
-The main aim of the library - prepare image for recogntion.
+The main aim of the library: prepare image for text recognition (OCR).
 Image processing can really help to improve recognition quality.
 
-*Features:*
+## Features
 
 * Auto crop image
 * Background normalization
@@ -24,28 +24,28 @@ Image processing can really help to improve recognition quality.
 * Thinning (Zhang-Suen, Guo-Hall)
 * White balance (Simple, Grayworld)
 
-*Dependencies:*
+## Dependencies
 
 * OpenCV
-* Leptonica.
+* Leptonica
 
-*How to build:*
+## How to build
 
 1) Go to the directory with source code
 2) Make directory for build:
-```shell
+   ```shell
     mkdir build
-```
+   ```
 3) Run cmake:
-```shell
+   ```shell
     cmake ..
-```    
+   ```    
 4) Run make:
-```shell
+   ```shell
     make
-```    
+   ```    
 
-*Build tested*
+## Build tested
 
 - Opencv: 4.7.0
 - Leptonica: 1.82.0-3
