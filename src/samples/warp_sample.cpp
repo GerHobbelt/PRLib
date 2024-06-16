@@ -30,7 +30,9 @@
 #include <stdexcept>
 #include <string>
 
-int main(int argc, char**argv)
+#include "monolithic_examples.h"
+
+int main(int argc, const char**argv)
 {
     if (argc < 3)
     {
@@ -55,5 +57,6 @@ int main(int argc, char**argv)
     //prl::thinGuoHall(inputImage, outputImage);
 
     cv::imwrite(outputImageFilename, outputImage);
+		return 0;
 }
 
