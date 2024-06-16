@@ -30,10 +30,16 @@
 #include <stdexcept>
 #include <string>
 
-int main(int argc, char**argv)
+#include "monolithic_examples.h"
+
+#if defined(BUILD_MONOLITHIC)
+#define main    prl_segmentation_sample_main
+#endif
+
+int main(int argc, const char**argv)
 {
-    const std::string inputImageFilename = "input.tif";// = argv[1];
-    const std::string outputImageFilename = "binary_sample";// = argv[2];
+    const std::string inputImageFilename = (argc >= 2 && argv[1]) ? argv[1] : "input.tif";
+    const std::string outputImageFilename = (argc >= 3 && argv[2]) ? argv[2] : "binary_sample";
 
     /*if (inputImageFilename.empty())
     {
@@ -53,5 +59,6 @@ int main(int argc, char**argv)
     cv::imwrite(outputImageFilename + ".text-layer.tif", outputImages[0]);
 		cv::imwrite(outputImageFilename + ".foreground-layer.tif", outputImages[1]);
 		cv::imwrite(outputImageFilename + ".background-layer.tif", outputImages[2]);
+		return 0;
 }
 

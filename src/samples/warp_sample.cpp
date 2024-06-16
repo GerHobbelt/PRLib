@@ -32,6 +32,10 @@
 
 #include "monolithic_examples.h"
 
+#if defined(BUILD_MONOLITHIC)
+#define main    prl_warp_sample_main
+#endif
+
 int main(int argc, const char**argv)
 {
     if (argc < 3)

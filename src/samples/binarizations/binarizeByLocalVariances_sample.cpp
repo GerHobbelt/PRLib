@@ -31,7 +31,13 @@
 #include <stdexcept>
 #include <string>
 
-int main(int argc, char**argv)
+#include "monolithic_examples.h"
+
+#if defined(BUILD_MONOLITHIC)
+#define main    prl_binarizeByLocalVariances_sample_main
+#endif
+
+int main(int argc, const char**argv)
 {
     if (argc < 4)
     {
@@ -64,5 +70,6 @@ int main(int argc, char**argv)
 
     cv::imwrite(outputImageFilenameFirst, outputImageFirst);
     cv::imwrite(outputImageFilenameSecond, outputImageSecond);
+		return 0;
 }
 

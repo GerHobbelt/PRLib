@@ -31,7 +31,13 @@
 #include <stdexcept>
 #include <string>
 
-int main(int argc, char**argv)
+#include "monolithic_examples.h"
+
+#if defined(BUILD_MONOLITHIC)
+#define main    prl_balanceGammaCorrection_sample_main
+#endif
+
+int main(int argc, const char**argv)
 {
     if (argc < 3)
     {
@@ -56,5 +62,6 @@ int main(int argc, char**argv)
     prl::gammaCorrection(inputImage, outputImage, 1.0, 1.0);
 
     cv::imwrite(outputImageFilename, outputImage);
+		return 0;
 }
 

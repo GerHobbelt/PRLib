@@ -30,7 +30,13 @@
 #include <stdexcept>
 #include <string>
 
-int main(int argc, char**argv)
+#include "monolithic_examples.h"
+
+#if defined(BUILD_MONOLITHIC)
+#define main    prl_denoiseKuwaharaFilter_sample_main
+#endif
+
+int main(int argc, const char**argv)
 {
     if (argc < 3)
     {
@@ -55,5 +61,6 @@ int main(int argc, char**argv)
     prl::denoiseKuwahara(inputImage, outputImage, 5);
 
     cv::imwrite(outputImageFilename, outputImage);
+		return 0;
 }
 
