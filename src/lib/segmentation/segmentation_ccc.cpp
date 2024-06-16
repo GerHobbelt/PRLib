@@ -200,7 +200,7 @@ namespace prl
         blueInt = VECTOR_SIZE % 2 != 0 ? blue.at(std::floor(VECTOR_SIZE / 2)) :
                   (blue.at(VECTOR_SIZE / 2) + blue.at((VECTOR_SIZE / 2) - 1)) / 2;
 
-        return {blueInt, greenInt, redInt};
+        return cv::Vec3b(blueInt, greenInt, redInt);
     }
 
     void reduceTo64Colors(cv::Mat& inputImage, const cv::Mat& textImage)
