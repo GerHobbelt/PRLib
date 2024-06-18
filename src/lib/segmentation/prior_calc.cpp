@@ -57,7 +57,7 @@ void find_neighbors(
 )
 {
     unsigned int** loc_map;
-    int x, y, i, j, k, f, ci;
+    int x, y, i, j, k, ci;
     int height, width;
     unsigned int cur_comp_num, nei_num, comp_cnt, cur_size;
     Nei_list data;
@@ -67,7 +67,6 @@ void find_neighbors(
     int startx, starty, ti, tj, dir;
     double dist;
     char check_flg;
-    double tmp;
 
     height = hw->i;
     width = hw->j;
