@@ -23,7 +23,43 @@
 #include "pbmtools.h"
 #include "utils.h"
 
+#ifndef ROUND
+#define ROUND(v)			iround(v)
+#endif
 
+class marklist_bad_alloc
+	: public std::exception
+{
+public:
+
+	marklist_bad_alloc() noexcept
+		: std::exception()
+	{
+	}
+
+	marklist_bad_alloc(char const* const _Message) noexcept
+		: std::exception(_Message)
+	{
+	}
+};
+
+
+static inline int iround(double v) {
+	v = round(v);
+	return int(v);
+}
+
+static void error(const char *origin, const char *message, const char *surplus) {
+	std::string msg = origin;
+	msg += ": ";
+	msg += message;
+	if (surplus && *surplus) {
+		msg += " (";
+		msg += surplus;
+		msg += ")";
+	}
+	throw marklist_bad_alloc(msg.c_str());
+}
 
 /* 
  * marktype_copy, make a completely new copy, creates a 
@@ -228,7 +264,7 @@ fillpostype* filla = nullptr;
 #define push(i, j) \
     if(top==MAX_FS){\
          MAX_FS+=8192;\
-         REALLOC(filla,MAX_FS,fillpostype);}\
+         filla = (decltype(filla))realloc(filla,MAX_FS * sizeof(fillpostype));}\
     filla[top].x=i;\
     filla[top].y=j;\
     top=(top+1);
@@ -263,7 +299,7 @@ marktype_fillextract8(marktype image,
     bottom = top = 0;
 
     if (filla == NULL)
-    CALLOC (filla, MAX_FS, fillpostype);
+		filla = (decltype(filla))calloc(MAX_FS, sizeof(fillpostype));
 
     if (pbm_getpixel (image.bitmap, i, j) == fillcol)
     {
@@ -338,7 +374,7 @@ marktype_fillextract4(marktype image,
     top = bottom = 0;
 
     if (filla == NULL)
-    CALLOC (filla, MAX_FS, fillpostype);
+			filla = (decltype(filla))calloc(MAX_FS, sizeof(fillpostype));
 
     if (pbm_getpixel (image.bitmap, i, j) == fillcol)
     {

@@ -258,7 +258,6 @@ void LogLikelihood(
 
 static void LogLikelihood_init(struct SigSet* S)
 {
-    int i;
     int nbands;
     double* lambda;
     ClassSig* C;
