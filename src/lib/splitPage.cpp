@@ -39,7 +39,7 @@ std::pair<cv::Point, cv::Point> findVertLine(const cv::Mat &inputImage) {
     if (inputImage.channels() == 3) {
         cv::cvtColor(inputImage, imageToProc, cv::COLOR_BGR2GRAY);
     }
-    // TODO: Should be possibly resized to smth like 256px
+    // TODO: Should be possibly resized to something like 256px
 
     // TODO: can be wrong in the reason of difficult for analyze page
     prl::deskew(inputImage, imageToProc);

@@ -177,7 +177,7 @@ void marktype_calc_centroid(marktype* b)
 
 /*
  * marktype_area, calculates the number of set pixels, as with all these
- * functions we assume the the number can fix in an integer.
+ * functions we assume the number can fix in an integer.
  */
 void marktype_area(marktype* d)
 {

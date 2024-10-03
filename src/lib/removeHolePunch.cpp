@@ -84,7 +84,7 @@ void prl::removeHolePunch(const cv::Mat& inputImage, cv::Mat& outputImage)
     }
     // End border heuristic
 
-    // Fill keypoits by white color.
+    // Fill keypoints by white color.
     // TODO: maybe we should find automatically background color and use it for filling instead of white
     for(const auto& keypoint : filteredKeypoints)
     {
